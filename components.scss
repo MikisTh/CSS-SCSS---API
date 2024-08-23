@@ -1,0 +1,86 @@
+.button {
+  padding: 3px 10px;
+  font-size: 12px;
+  border-radius: 3px;
+  border: 1px solid #e1e4e8;
+}
+
+nav {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li { display: inline-block; }
+
+  a {
+    display: block;
+    padding: 6px 12px;
+    text-decoration: none;
+  }
+}
+
+%toolbelt {
+  box-sizing: border-box;
+  border-top: 1px rgba(#000, .12) solid;
+  padding: 16px 0;
+  width: 100%;
+
+  &:hover { border: 2px rgba(#000, .5) solid; }
+}
+
+.action-buttons {
+  @extend %toolbelt;
+  color: #4285f4;
+}
+
+.reset-buttons {
+  @extend %toolbelt;
+  color: #cddc39;
+}
+
+$variable: global value;
+
+.content {
+  $variable: local value;
+  value: $variable;
+}
+
+.sidebar {
+  value: $variable;
+}
+
+@use "sass:map";
+
+$theme-colors: (
+  "success": #28a745,
+  "info": #17a2b8,
+  "warning": #ffc107,
+);
+
+.alert {
+  background-color: map.get($theme-colors, "warning");
+}
+
+@use : carrega mixins, funções e variáveis de outras folhas de estilo Sass e combina CSS de várias folhas de estilo juntas.
+
+@forward : carrega uma folha de estilo Sass e disponibiliza suas mixins, funções e variáveis quando sua folha de estilo é carregado com a regra.@use
+
+@import : estende a regra de CSS para carregar estilos, mixins, funções e variáveis de outras folhas de estilo.
+
+@mixin e @include : facilita a Reutilize pedaços de estilos.
+
+@function : define funções personalizadas que pode ser usado em expressões SassScript.
+
+@extend : permite que os seletores herdem estilos um do outro.
+
+@at-root : coloca estilos dentro dele no nível de raiz do documento CSS.
+
+@error : faz com que a compilação falhe com um mensagem de erro.
+
+@warn : imprime um aviso sem parar compilação inteiramente.
+
+@debug : imprime uma mensagem para fins de depuração.
+
+Regras de controle de fluxo, como @if, @each, @for e @while controlam se ou quantas vezes os estilos são emitidos.
